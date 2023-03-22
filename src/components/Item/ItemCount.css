@@ -1,0 +1,9 @@
+.itemCount{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.botonContador{
+    width: 40%;
+    transition-duration: 0.4s;
+}

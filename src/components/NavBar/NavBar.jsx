@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = (props) => {
@@ -21,22 +22,24 @@ const NavBar = (props) => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav justify-content-center w-100">
             <li className="nav-item">
-              <a style={{color:props.color}} className="nav-link" href="#">
-                Discos
-              </a>
+              <Link to="/category/Pop"style={{color:props.color}} className="nav-link" href="#">
+                Pop
+              </Link>
             </li>
             <li className="nav-item">
-              <a style={{color:props.color}} className="nav-link" href="#">
-                Reproductores De Musica
-              </a>
+              <Link to="/category/HyperPop" style={{color:props.color}} className="nav-link" href="#">
+                HyperPop
+              </Link>
             </li>
             <li className="nav-item">
-              <a style={{color:props.color}} className="nav-link" href="#">
-                Instrumentos
-              </a>
+              <Link to="/category/Rock" style={{color:props.color}} className="nav-link" href="#">
+                Rock
+              </Link>
             </li>
           </ul>
-          <li style={{listStyle: "none"}}>🛒</li>
+          <li style={{listStyle: "none"}}>
+            🛒
+          </li>
           <p className="cantidadItems">0</p>
         </div>
       </nav>

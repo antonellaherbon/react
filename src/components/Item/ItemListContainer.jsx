@@ -1,32 +1,60 @@
-// function Item(props) {
-//   return (
-//     <div>
-//       <img src="" alt="" />
-//       <h3>{props.title}</h3>
-//       <h4>{props.price}</h4>
-//       <small>{props.description}</small>
-//     </div>
-//   );
-// }
-
-
+import React, { useState, useEffect } from "react";
 import "./ItemListContainer.css"
+import "../Flex/Flex"
+import Flex from "../Flex/Flex"
+import Item from "./Item"
+import discos from "../../discos" 
+import { useParams } from "react-router-dom";
 
 
+function getItems() {
+  const promesa = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(discos)
+    }, 1000)
+  });
 
-const Item = (props) => {
-  return(
-    <div className="card">
-      <img src={props.image} className="card-img-top" alt="..."/>
-      <div className="card-body">
-        <h3 className="card-title">{props.title}</h3>
-        <p className="card-text">{props.description}</p>
-        <h4 className="card-text">{props.price}</h4>
-        <button className="btn btn-dark">Añadir al Carrito</button>
-      </div>
-    </div>
-  )
+  return promesa
 }
 
-export default Item;
+
+const ItemListContainer = (props) => {
+  const [listadoDiscos, setListadoDiscos] = useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+        const discosObtenidos = await getItems()
+        setListadoDiscos(discosObtenidos)
+      }
+      fetchData();
+  }, []) 
+
+  let {categoryid} = useParams()
+
+  let discosFiltrados = listadoDiscos
+  
+  if (categoryid){
+    discosFiltrados = listadoDiscos.filter((disco) => 
+      categoryid === disco.category
+    )
+  }
+
+  return(
+    <Flex>
+      {discosFiltrados.length == 0 ? "Estamos cargando los discos..." : discosFiltrados.map((producto) => 
+        <Item
+          stock={producto.stock}
+          key={producto.id}
+          title = {producto.title}
+          price= {producto.price}
+          description = {producto.description}
+          category={producto.category}
+          image= {producto.image}
+        />
+      )}
+    </Flex> )
+  
+}
+
+export default ItemListContainer;
 
