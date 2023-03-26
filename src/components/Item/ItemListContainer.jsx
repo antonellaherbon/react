@@ -17,10 +17,24 @@ function getItems() {
   return promesa
 }
 
+function getSingleItems(idURL){
+  const promesa = new Promise((resolve,reject) => {
+    setTimeout(() => {
+      const discoEncontrado = discos.find(item => {
+        return(item.id === parseInt(idURL))
+      })
+      resolve(discoEncontrado);
+    }, 1000);
+  });
+
+  return promesa
+}
 
 const ItemListContainer = (props) => {
   const [listadoDiscos, setListadoDiscos] = useState([])
 
+  let {id, categoryid} = useParams()
+  console.log(id, categoryid)
   useEffect(() => {
     async function fetchData() {
         const discosObtenidos = await getItems()
@@ -29,10 +43,14 @@ const ItemListContainer = (props) => {
       fetchData();
   }, []) 
 
-  let {categoryid} = useParams()
-
   let discosFiltrados = listadoDiscos
-  
+
+  if (id){
+    discosFiltrados = listadoDiscos.filter((disco) => 
+    id === disco.id
+    )
+  }
+
   if (categoryid){
     discosFiltrados = listadoDiscos.filter((disco) => 
       categoryid === disco.category
@@ -45,6 +63,7 @@ const ItemListContainer = (props) => {
         <Item
           stock={producto.stock}
           key={producto.id}
+          id = {producto.id}
           title = {producto.title}
           price= {producto.price}
           description = {producto.description}

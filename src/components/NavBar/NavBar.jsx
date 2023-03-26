@@ -4,9 +4,9 @@ import "./NavBar.css";
 const NavBar = (props) => {
     return (
       <nav className="navbar navbar-expand nav-header">
-        <h1 style={{color:props.color}} className="navbar-brand" href="#">
+        <Link to="/" style={{color:props.color}} className="navbar-brand" href="#">
           Music Store
-        </h1>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
