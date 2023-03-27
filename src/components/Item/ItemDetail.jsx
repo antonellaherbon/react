@@ -34,7 +34,7 @@ const ItemDetail = (props) => {
                         </div>
                     </div>
                     <div className="row">
-                        <iframe src={disco.spotify} frameborder="0"></iframe>
+                        <iframe src={disco.spotify}></iframe>
 
                     </div>
                 </div>
