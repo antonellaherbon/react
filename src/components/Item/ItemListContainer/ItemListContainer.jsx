@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./ItemListContainer.css"
-import "../Flex/Flex"
-import Flex from "../Flex/Flex"
-import Item from "./Item"
-import discos from "../../discos" 
+import "../../Flex/Flex"
+import Flex from "../../Flex/Flex"
+import Item from "../Item"
+import discos from "../../../discos" 
 import { useParams } from "react-router-dom";
 
 
@@ -21,6 +21,7 @@ const ItemListContainer = (props) => {
   const [listadoDiscos, setListadoDiscos] = useState([])
 
   let {categoryid} = useParams()
+  
   useEffect(() => {
     async function fetchData() {
         const discosObtenidos = await getItems()
@@ -39,16 +40,10 @@ const ItemListContainer = (props) => {
 
   return(
     <Flex>
-      {discosFiltrados.length == 0 ? "Estamos cargando los discos..." : discosFiltrados.map((producto) => 
+      {discosFiltrados.length === 0 ? "Estamos cargando los discos..." : discosFiltrados.map((producto) => 
         <Item
-          stock={producto.stock}
-          key={producto.id}
-          id = {producto.id}
-          title = {producto.title}
-          price= {producto.price}
-          description = {producto.description}
-          category={producto.category}
-          image= {producto.image}
+        key={producto.id}
+          data={producto}
         />
       )}
     </Flex> )

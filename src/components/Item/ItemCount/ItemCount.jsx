@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ItemCount.css"
 
-export default function ItemCount(props) {
-    const [count, setCount] = useState(1);
-
-    const stock = props.stock;
+export default function ItemCount({stock, count, setCount}) {
 
     function handleAdd(){
         setCount(count + 1)
@@ -17,7 +14,7 @@ export default function ItemCount(props) {
     return (
         <div className="itemCount">
             <button className="botonContador" onClick={handleSubstract} disabled={count===1}>-</button>
-            <span> {count} </span>
+            <span className="contador"> {count} </span>
             <button className="botonContador" onClick={handleAdd} disabled={count===stock}>+</button>
         </div>
     );

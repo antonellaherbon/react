@@ -4,6 +4,11 @@
 }
 
 .botonContador{
-    width: 40%;
+    width: 18%;
     transition-duration: 0.4s;
+    border-radius: 10%;
+}
+
+.contador{
+    padding: 4%;
 }
