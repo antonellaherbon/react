@@ -13,9 +13,7 @@ function CartProvider(props){
     }
 
     function addItem(producto, newQuantity) {
-        console.log('carrito: ', cart);
         const productoExistente = cart.find((prod) => prod.id === producto.id)
-        console.log("productoExistente: ", productoExistente)
         if (productoExistente){
             const newCart = cart.map((prod) => {
                 if (prod.id === producto.id){
@@ -24,21 +22,17 @@ function CartProvider(props){
                     return prod
                 }
             })
-        console.log('newCart: ', newCart);
 
             setCart(newCart)
         }else{
             const newCart = [...cart]
             newCart.push({...producto, quantity: newQuantity})
             setCart(newCart)
-        console.log('newCart: ', newCart);
-    }
-        console.log('carrito: ', cart);
-
-    }
+    }}
 
     function removeItem(id){
         setCart(cart.filter(product => product.id !== id))
+        console.log("remove")
     }
 
     // const isInCart = (id) => setCart(cart.filter(product => product.id !== id));
