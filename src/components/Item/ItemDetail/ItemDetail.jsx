@@ -1,22 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import discos from "../../../discos";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { getSingleItem } from "../../../service/database";
 
 const ItemDetail = (props) => {
     const [disco, setDisco] = useState({})
     const {id} = useParams();
 
-
     useEffect(() => {
-        async function fetchData() {
-        const discoEncontrado = discos.find((d) => id == d.id)
-
-        if(discoEncontrado){
-            setDisco(discoEncontrado)
-        }
-        }
-        fetchData();
+        getSingleItem(id).then((respuesta) => {
+            setDisco(respuesta)
+        })
     }, [])
     
 
@@ -32,7 +26,7 @@ const ItemDetail = (props) => {
                             <h1 style={{textAlign: 'center', marginTop: '6%', fontWeight: '700'}}>{disco.title}</h1>
                             <h2 style={{textAlign: 'center', paddingLeft: '5%', fontWeight: '300'}}>Artista: {disco.artista}</h2>
                             <h3 style={{textAlign: 'center', padding: '%1', fontWeight: '100'}}>{disco.description}</h3>
-                            <h4 className="text-muted" style={{textAlign: 'center', padding: '%1', fontWeight: '100'}}>Precio: {disco.price}</h4>
+                            <h4 className="text-muted" style={{textAlign: 'center', padding: '%1', fontWeight: '100'}}>Precio: ${disco.price}</h4>
                         </div>
                     </div>
                 </div>

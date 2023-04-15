@@ -3,19 +3,8 @@ import "./ItemListContainer.css"
 import "../../Flex/Flex"
 import Flex from "../../Flex/Flex"
 import Item from "../Item"
-import discos from "../../../discos" 
 import { useParams } from "react-router-dom";
-
-
-function getItems() {
-  const promesa = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(discos)
-    }, 1000)
-  });
-
-  return promesa
-}
+import { getItems } from "../../../service/database";
 
 const ItemListContainer = (props) => {
   const [listadoDiscos, setListadoDiscos] = useState([])
@@ -43,7 +32,7 @@ const ItemListContainer = (props) => {
       {discosFiltrados.length === 0 ? "Estamos cargando los discos..." : discosFiltrados.map((producto) => 
         <Item
         key={producto.id}
-          data={producto}
+        data={producto}
         />
       )}
     </Flex> )

@@ -15,11 +15,11 @@ function Item({data}){
     }
 
     return(
-        <div className="card">
+        <div className="card" style={{width: '18rem'}}>
             <img src={data.image} className="card-img-top" alt="..."/>
             <div className="card-body">
                 <h3 className="card-title">{data.title}</h3>
-                <h4 className="text-muted">{data.price}</h4>
+                <h4 className="text-muted">${data.price}</h4>
                 <ItemCount count={count} setCount={setCount} stock={data.stock}/>
                 <button onClick={onAdd} className="btn btn-dark">Añadir al Carrito</button>
                 <Link to={`/detalle/${data.id}`}>

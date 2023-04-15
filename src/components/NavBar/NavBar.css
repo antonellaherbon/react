@@ -3,6 +3,9 @@
     color: white;
 }
 
+.nav-item{
+    opacity: 60%;
+}
 .nav-item:hover{
     color: rgb(143, 140, 140);
 }

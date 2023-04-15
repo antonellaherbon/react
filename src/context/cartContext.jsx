@@ -30,13 +30,17 @@ function CartProvider(props){
             setCart(newCart)
     }}
 
+    
     function removeItem(id){
-        setCart(cart.filter(product => product.id !== id))
-        console.log("remove")
+        //creo un nuevo array del cart con todos los prods menos con el eliminado
+        const eliminarProducto = cart.filter((producto) => producto.id !== id)
+        setCart(eliminarProducto)
     }
 
-    // const isInCart = (id) => setCart(cart.filter(product => product.id !== id));
-
+    // function getTotalPriceInCart(producto, quantity){
+    //     let total = cart.reduce((acc, producto) => acc + producto.quantity * producto.price, 0)
+    // }
+    
     return <Provider value={{ 
         cart, addItem, clearCart, removeItem
         }}>

@@ -26,7 +26,7 @@ const NavBar = (props) => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav justify-content-center w-100">
+          <ul className="navbar-nav justify-content-around w-100">
             <li className="nav-item">
               <Link to="/category/Pop"style={{color:props.color}} className="nav-link" href="#">
                 Pop
