@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function CartWidget(){
     return (
         <>
-            <Link to="/cart">
+            <Link className="nav-link" to="/cart">
                 🛒
             </Link>
         </>

@@ -19,7 +19,6 @@ export async function getItems(){
   const dicoSnap = await getDocs(discosRef) //pido los docs
     const documents = dicoSnap.docs
 
-   //extraigo docs
     const docsData = documents.map((doc) => {
     return { id: doc.id, ...doc.data() }
 })
@@ -36,6 +35,9 @@ export async function getSingleItem(idURL){
 
 export async function createOrder(order) {
     const collectionOrdersRef = collection(dataBase, "orders")
+    console.log("referencia: ", collectionOrdersRef)
+    console.log("orden", order)
     const response = await addDoc(collectionOrdersRef, order);
+    console.log("respuesta",response)
     return response.id; 
 }

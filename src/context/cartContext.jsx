@@ -12,7 +12,7 @@ function CartProvider(props){
         setCart([])
     }
 
-    function addItem(producto, newQuantity) {
+    function addItem(producto, newQuantity, stock) {
         const productoExistente = cart.find((prod) => prod.id === producto.id)
         if (productoExistente){
             const newCart = cart.map((prod) => {

@@ -43,7 +43,7 @@ const NavBar = (props) => {
               </Link>
             </li>
           </ul>
-          <li style={{listStyle: "none"}}>
+          <li className="nav-item" style={{listStyle: "none"}}>
             <CartWidget/>
           </li>
           <p className="cantidadItems">{cart.length}</p>

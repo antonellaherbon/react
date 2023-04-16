@@ -30,9 +30,6 @@ const ItemDetail = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <iframe src={disco.spotify}></iframe>
-                </div>
             </div>
         : 
             <div>No se encontro el disco</div>)
