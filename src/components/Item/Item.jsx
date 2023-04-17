@@ -17,7 +17,7 @@ function Item({data}){
     return(
         <div className="card" style={{width: '18rem'}}>
             <img src={data.image} className="card-img-top" alt="..."/>
-            <div className="card-body">
+            <div className="card-body" style={{textOverflow:'ellipsis'}}>
                 <h3 className="card-title">{data.title}</h3>
                 <h4 className="text-muted">${data.price}</h4>
                 <ItemCount count={count} setCount={setCount} stock={data.stock}/>
