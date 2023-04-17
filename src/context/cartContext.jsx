@@ -36,10 +36,6 @@ function CartProvider(props){
         const eliminarProducto = cart.filter((producto) => producto.id !== id)
         setCart(eliminarProducto)
     }
-
-    // function getTotalPriceInCart(producto, quantity){
-    //     let total = cart.reduce((acc, producto) => acc + producto.quantity * producto.price, 0)
-    // }
     
     return <Provider value={{ 
         cart, addItem, clearCart, removeItem
